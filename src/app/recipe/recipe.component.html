@@ -1,0 +1,14 @@
+<div class="row">
+  @if (selectedRecipe) {
+  <div class="col-5">
+    <app-recipe-list (recpeslice)="selectedRecipe = $event"></app-recipe-list>
+  </div>
+  <div class="col-md-7" [@slideInOut]="selectedRecipe ? 'in' : 'out'">
+    <app-recipe-detals [recipe]="selectedRecipe"></app-recipe-detals>
+  </div>
+  }@else {
+  <div class="col-12">
+    <app-recipe-list (recpeslice)="selectedRecipe = $event"></app-recipe-list>
+  </div>
+  }
+</div>

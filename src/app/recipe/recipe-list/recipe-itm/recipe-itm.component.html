@@ -1,0 +1,20 @@
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="card">
+      <img [src]="recipe?.imagePath" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe?.neam }}</h5>
+        <p class="card-text">{{ recipe?.description }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="card" style="margin:10px 5px;">
+  <img [src]="recipe?.imagePath" class="card-img-top" />
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe?.neam }}</h5>
+    <p class="card-text">{{ recipe?.description }}</p>
+   
+    <button [disabled]="botondesibl" class="btn btn-primary">Add to Cart</button>
+  </div>
+</div>

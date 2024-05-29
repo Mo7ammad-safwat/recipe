@@ -1,0 +1,20 @@
+
+  @if (recipe) {
+  <div class="card">
+      <img [src]="recipe.imagePath" class="card-img-top" >
+
+    <div class="card-body">
+      <h5 class="card-title">{{ recipe.neam }}</h5>
+      <p class="card-text">{{ recipe.description }}</p>
+       <ul class="list-group list-group-flush">
+      <!-- <li class="list-group-item" *ngFor="let ingredient of recipe?.ingredients">{{ ingredient }}</li> -->
+    </ul>
+    <button [disabled]="botondesibl" class="btn btn-primary">Add to Cart</button>
+
+    </div>
+  </div>
+}
+@else {
+  <p>Please select a Recipe!</p>
+}
+

@@ -1,0 +1,17 @@
+<div class="row">
+  <app-shopeing-edit (ingredientadd)="oningredientadd($event)"></app-shopeing-edit>
+  <div class="col-md-12">
+    <ul class="list-croup" style="margin: 10px">
+      @for (item of Ingredients; track $index) {
+      <li
+
+        style="cursor: pointer; border: solid #becad5"
+        class="list-group-item"
+      >
+        {{ item.name }} ({{ item.amount }})
+      </li>
+      }
+    </ul>
+  </div>
+</div>
+

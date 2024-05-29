@@ -1,0 +1,24 @@
+<div class="row">
+  @for (recipe of recipe; track $index) {
+  <div class="col-md-6" (click)="onselectRecipe(recipe)">
+    <app-recipe-itm [recipe]="recipe"></app-recipe-itm>
+  </div>
+  }
+</div>
+<!-- <app-recipe-itm [recipes]="recipes"></app-recipe-itm> -->
+<!-- <div class="card" style="width: 400px">
+      <img class="card-img-top" src="img_avatar1.png" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+    <div class="card" style="width: 400px">
+      <img class="card-img-top" src="img_avatar1.png" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div> -->
