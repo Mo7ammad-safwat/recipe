@@ -1,3 +1,4 @@
+import { ShopingLestService } from './../../sherde/shoping-lest.service';
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Ingredient } from '../../sherde/ingredienes.model';
 
@@ -9,12 +10,12 @@ import { Ingredient } from '../../sherde/ingredienes.model';
 export class ShopeingEditComponent {
   @ViewChild('naemimput', { static: true }) naemref?: ElementRef;
   @ViewChild('amontinput', { static: true }) amountref?: ElementRef;
-  @Output() ingredientadd = new EventEmitter<Ingredient>();
+  constructor(private ShopingLestService: ShopingLestService) {}
   onaddaitm() {
     const newIngredient = new Ingredient(
       this.naemref?.nativeElement.value,
       this.amountref?.nativeElement.value
     );
-    this.ingredientadd.emit(newIngredient);
+    this.ShopingLestService.oningredientadd(newIngredient);
   }
 }

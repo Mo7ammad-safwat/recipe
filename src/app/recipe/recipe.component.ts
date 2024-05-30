@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Recipe } from './Recipe.model';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Recipe } from '../sherde/Recipe.model';
+import { RecipeService } from '../sherde/recipe.service';
 
 @Component({
   selector: 'app-recipe',
@@ -30,6 +31,13 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class RecipeComponent {
+export class RecipeComponent implements OnInit{
   selectedRecipe?: Recipe;
+  constructor(private recipeService: RecipeService) {}
+  ngOnInit(): void {
+    this.recipeService.recpeslice.subscribe((recipe: Recipe) => {
+
+      this.selectedRecipe = recipe;});
+    }
+
 }

@@ -1,6 +1,7 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Recipe } from '../Recipe.model';
+import { Component, EventEmitter, Output,OnInit } from '@angular/core';
+import { Recipe } from '../../sherde/Recipe.model';
+import { RecipeService } from '../../sherde/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -30,55 +31,13 @@ import { Recipe } from '../Recipe.model';
     ]),
   ],
 })
-export class RecipeListComponent {
-  // @Input() recipe: Recipe[] = [];
-  @Output() recpeslice = new EventEmitter<Recipe>();
-  selectedRecipe?: Recipe;
-  recipe: Recipe[] = [
-    new Recipe(
-      'A Test Recipe1',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe2',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe3',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe4',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe4',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe4',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe4',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-    new Recipe(
-      'A Test Recipe4',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
-    ),
-  ];
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe[] = [];
+  constructor(private recpeservs: RecipeService) {}
+  ngOnInit(): void {
+    this.recipes = this.recpeservs.gitrecpe();
+  }
   onselectRecipe(recipe: Recipe) {
-    this.recpeslice.emit(recipe);
-
-    console.log(recipe);
+    this.recpeservs.recpeslice.emit(recipe);
   }
 }

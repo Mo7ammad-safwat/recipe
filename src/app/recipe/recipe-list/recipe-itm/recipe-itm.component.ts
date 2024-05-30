@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Recipe } from '../../Recipe.model';
+import { Recipe } from '../../../sherde/Recipe.model';
+
 
 @Component({
   selector: 'app-recipe-itm',

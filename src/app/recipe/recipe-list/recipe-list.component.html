@@ -1,5 +1,5 @@
 <div class="row">
-  @for (recipe of recipe; track $index) {
+  @for (recipe of recipes; track $index) {
   <div class="col-md-6" (click)="onselectRecipe(recipe)">
     <app-recipe-itm [recipe]="recipe"></app-recipe-itm>
   </div>

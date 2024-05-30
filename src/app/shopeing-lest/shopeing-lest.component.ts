@@ -1,10 +1,8 @@
+import { ShopingLestService } from '../sherde/shoping-lest.service';
 import { Ingredient } from './../sherde/ingredienes.model';
 import {
   Component,
-  ElementRef,
-  EventEmitter,
-  Output,
-  ViewChild,
+  OnInit,
 } from '@angular/core';
 
 @Component({
@@ -12,15 +10,15 @@ import {
   templateUrl: './shopeing-lest.component.html',
   styleUrl: './shopeing-lest.component.scss',
 })
-export class ShopeingLestComponent {
+export class ShopeingLestComponent implements OnInit{
+  Ingredients: Ingredient[] = [];
+  constructor(private shopinglestservs:ShopingLestService) {}
+  ngOnInit(): void {
+    this.Ingredients = this.shopinglestservs.onslectingredien();
 
-  Ingredients: Ingredient[] = [
-    new Ingredient('Apple', 5),
-    new Ingredient('Tomato', 10),
-    new Ingredient('Potato', 15),
-  ];
-  oningredientadd(ingredient: Ingredient) {
-    this.Ingredients.push(ingredient);
   }
+
+
+ 
 
 }

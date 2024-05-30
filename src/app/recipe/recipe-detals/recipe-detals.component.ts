@@ -1,6 +1,7 @@
+import { RecipeService } from './../../sherde/recipe.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { Recipe } from '../Recipe.model';
+import { Recipe } from '../../sherde/Recipe.model';
 
 @Component({
   selector: 'app-recipe-detals',
@@ -13,7 +14,13 @@ import { Recipe } from '../Recipe.model';
     ]),
   ],
 })
-export class RecipeDetalsComponent {
-  @Input() recipe?: Recipe;
+export class RecipeDetalsComponent implements OnInit {
+  recipes?: Recipe;
   botondesibl = true;
+  constructor(private recipeService: RecipeService) {}
+  ngOnInit(): void {
+    this.recipeService.recpeslice.subscribe((recipe: Recipe) => {
+      this.recipes = recipe;
+    });
+  }
 }
